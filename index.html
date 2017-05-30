@@ -3,11 +3,30 @@ layout: default
 title: מתכונים
 ---
 
-<div class="posts">
+
+<div class="tags-menu">
+<ul>
+    <li class="filter" data-filter="all">הכל</li>
+    {% for tag in site.tags %}
+    <li class="filter" data-filter=".{{tag | first}}">{{tag | first}}</li>
+    {% endfor %}
+</ul>
+</div>
+
+
+
+
+<div class="recipes-container">
   {% for post in site.posts reversed %}
 
  {{post}}
 
   {% endfor %}
 </div>
+
+<script src="{{ site.baseurl }}/js/plugins.js"></script>
+<script>
+    var containerEl = document.querySelector('.recipes-container');
+    var mixer = mixitup(containerEl);
+</script>
 
