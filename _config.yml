@@ -1,0 +1,18 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               מתכונים
+tagline:
+url:
+baseurl:             ""
+
+# Assets
+#
+# We specify the directory for Jekyll so we can use @imports.
+sass:
+  sass_dir:          _sass
+  style:            :compressed
+
+kramdown:
+  hard_wrap:      true

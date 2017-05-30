@@ -1,0 +1,11 @@
+<article class="recipe">
+    <div class="recipe-half">
+        {{page.time}}
+        {{content}}
+    </div>
+    <div class="recipe-half">
+        {% for img in page.images %}
+        <img width="100%" src="{{ site.url }}/images/{{img}}" />
+        {% endfor %}
+    </div>
+</article>
