@@ -14,13 +14,13 @@ i5: ["2" i]
 i7: ["בצל"]
 i8: [2 "בצל"]
 i10: ["2 בצל"]
-; i11: ["2 bzl"]
-i12: ["2" space "bzl"]
+; i11: ["2 bzl"] ; test with english
+; i12: ["2" space "bzl"]
 i13: ["בצל" space "2"]
 i14: ["2" space "בצל"]
 
 i15: rejoin i4
-i16: rejoin i12
+; i16: rejoin i12
 i17: rejoin i13
 i18: rejoin i14
 
@@ -83,10 +83,13 @@ print not parse i10 ingredient
 
 print parse i15 ingredient
 
-print parse i16 ingredient
+; print parse i16 ingredient
 print not parse i17 ingredient
 print parse i18 ingredient
 print not parse i18 shem
 
 print parse rejoin ["2/3" space "בצל"] ingredient
 print parse rejoin ["1.5" space "בצל"] ingredient
+
+print parse rejoin ["1" space "בצל" space "גדול"] ingredient
+print parse "גמבה" ingredient

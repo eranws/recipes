@@ -8,15 +8,31 @@ Red []
 ; unit: [opt digit to measure] ; cup / spoon
 
 ; ingredient: [[unit shem] | [shem unit]]
-ingredient: [unit shem]
+ingredient: [unit shem opt [space size]]
 unit: [opt [number space]]
 number: [fraction | float | digit]
 fraction: [digit slash digit]
 float: [digit dot any digit]
 
 digit:  charset "0123456789"
+abc:  charset "אבגדהוזחטיכלמנסעפצקרשת"
+; action (munbatot)
+; type (rotev)
 
-shem: ["בצל" | "bzl"]
+; onion: ["בצל" | "bzl"]
+
+; v-string: load read %vegetables.red
+; vegetables: split read %vegetables.red lf
+; ? figure out how to make rule from string list (separated by newline)
+v-rule: load read %vegetables-rule.red
+
+vegetables: v-rule
+
+vegetable: [any vegetables]
+shem: [vegetable]
+
+size: "גדול"
+
 ; mock list, or use corpus
 
 ; unit-test (for dev)
