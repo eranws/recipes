@@ -10,15 +10,11 @@ Red []
 ; ingredient: [[unit shem] | [shem unit]]
 ingredient: [unit shem]
 unit: [opt [number space]]
+number: [fraction | float | digit]
 fraction: [digit slash digit]
 float: [digit dot any digit]
-number: [fraction | float | digit] ; or slash
 
-; digit: ["1" | "2"]
 digit:  charset "0123456789"
-
-; letter: charset [#"a" - #"z"]
-; parse "hello 123 world" [5 letter space 3 digit space some letter]
 
 shem: ["בצל" | "bzl"]
 ; mock list, or use corpus
