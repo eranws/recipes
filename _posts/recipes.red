@@ -26,7 +26,8 @@ p: parse text [
     ; layout: recipe
     ; tags: עדשים
     ; images: IMG_20160411_131704.jpg
-    to "---" ; (print "end yaml")
+    collect set recipe-head
+    keep to "---" ; (print "end yaml")
 
     to "# " ; (print "title")
     collect set title
@@ -58,13 +59,15 @@ x: split body "^/^/"
 ; x/2 instructions
 ; x/3 comments
 
-; loop forever [probe do ask "dbg >> "]
 
 out-text: body
 
+print recipe-head
 print rejoin ["title: " :title]
 print rejoin ["subtitle: " subtitle]
 probe p
 
 out-name: make file! next mold replace a/1 ".md" ".red"
 write out-name out-text
+
+loop forever [probe do ask "dbg >> "]

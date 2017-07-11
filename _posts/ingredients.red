@@ -9,17 +9,26 @@ Red []
 
 ; ingredient: [[unit shem] | [shem unit]]
 ingredient: [unit shem]
-unit: [opt [digit space]]
-number: [digit [any dot digit]] ; or slash
-digit: ["1" | "2"]
+unit: [opt [number space]]
+fraction: [digit slash digit]
+float: [digit dot any digit]
+number: [fraction | float | digit] ; or slash
+
+; digit: ["1" | "2"]
+digit:  charset "0123456789"
+
+; letter: charset [#"a" - #"z"]
+; parse "hello 123 world" [5 letter space 3 digit space some letter]
 
 shem: ["בצל" | "bzl"]
 ; mock list, or use corpus
 
-i-test: rejoin ["2" space "בצל"]
+i-test: rejoin ["2.3" space "בצל"]
 print parse i-test ingredient
 
-q 
+q
+print parse-trace i-test ingredient
+
 ; tests
 i: "בצל"
 i2: "בצל 2"
@@ -105,3 +114,6 @@ print parse i16 ingredient
 print not parse i17 ingredient
 print parse i18 ingredient
 print not parse i18 shem
+
+print parse rejoin ["2/3" space "בצל"] ingredient
+print parse rejoin ["1.5" space "בצל"] ingredient
