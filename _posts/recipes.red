@@ -16,27 +16,26 @@ text: read x
 ; ingredients
 ; ]
 
-parsed-text: ""
 ws: [lf | space | tab]
 
-parse text [
+body: ""
+p: parse text [
 
-    thru "---" (print "start yaml") 
+    thru "---" ; (print "start yaml") 
     ; yaml stuff, parse Tags
     ; layout: recipe
     ; tags: עדשים
     ; images: IMG_20160411_131704.jpg
+    to "---" ; (print "end yaml")
 
-    ; collect keep ; prints all for debug
-    to "---" (print "end yaml")
-    thru "^/"
+    to "# " ; (print "title")
+    collect set title
+    keep to lf
 
-    to "# " (print "title")
-    collect set title keep ; how to reset into?
-    to "#### " (print "subtitle")
-    collect set subtitle keep
-    to lf
     ; todo support any number of #'s
+    to "#### " ; (print "subtitle")
+    collect set subtitle
+    keep to lf
 
     ; can be repeated (1 to 3 sections)
     ;; use `keep to [ lf lf | end ]` ?
@@ -47,22 +46,25 @@ parse text [
     ; ingredients    
     ; instructions
     ; comments
-
-    collect into parsed-text ; prints all for debug
+    collect into body ; prints all for debug
     keep to end
 
     ]
 
 
-;out-text: split parsed-text/1 newline ; newlines?
-;out-text: parsed-text/1 ; parse returns block
+x: split body "^/^/"
+; todo x
+; x/1 ingredients
+; x/2 instructions
+; x/3 comments
 
+; loop forever [probe do ask "dbg >> "]
 
-out-text: parsed-text ; using collect into 
+out-text: body
 
-print title
-print subtitle
-
+print rejoin ["title: " :title]
+print rejoin ["subtitle: " subtitle]
+probe p
 
 out-name: make file! next mold replace a/1 ".md" ".red"
 write out-name out-text
