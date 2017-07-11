@@ -14,9 +14,12 @@ number: [digit [any dot digit]] ; or slash
 digit: ["1" | "2"]
 
 shem: ["בצל" | "bzl"]
+; mock list, or use corpus
 
+i-test: rejoin ["2" space "בצל"]
+print parse i-test ingredient
 
-
+q 
 ; tests
 i: "בצל"
 i2: "בצל 2"
