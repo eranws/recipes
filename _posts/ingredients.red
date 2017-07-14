@@ -4,11 +4,11 @@ Red []
 ; ingredient: [kamut shem]
 ; qty: kamut
 
-; measure: [none | "" | "כוס"]
+measure: ["כפית" | "כוס" | "כפות" | "חבילה" | "חבילת"]
 ; unit: [opt digit to measure] ; cup / spoon
 
 ; ingredient: [[unit shem] | [shem unit]]
-ingredient: [unit shem opt [space size]]
+ingredient: [unit opt [measure space] shem opt [space size]]
 unit: [opt [number space]] ; todo set to 1 by default
 number: [fraction | float | digit]
 fraction: [digit slash digit]
