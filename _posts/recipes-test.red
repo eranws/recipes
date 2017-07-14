@@ -9,20 +9,18 @@ a: read %.
 x: make file! a/1
 
 text: read x
-; do something with text
 
-p: parse text recipe
+either (parse text recipe) [
+        print rejoin ["title: " :title]
+        print rejoin ["subtitle: " :subtitle]
+        ; print rejoin ["body: " :body]
+    ][
+        parse-trace text recipe
+        print "fail"
+    ]
 
-; x: split body line-sep
-
-out-text: body
-
-print recipe-head
-print rejoin ["title: " :title]
-print rejoin ["subtitle: " :subtitle]
-probe p
-
-out-name: make file! next mold replace a/1 ".md" ".red"
-write out-name out-text
+; out-text: body
+; out-name: make file! next mold replace a/1 ".md" ".red"
+; write out-name out-text
 
 ; loop forever [probe do ask "dbg >> "]

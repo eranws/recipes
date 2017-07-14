@@ -97,3 +97,4 @@ print parse "גמבה" ingredient
 print parse rejoin ["1" space "בצל" space "קטן"] ingredient
 
 print parse rejoin ["3" space "גמבה" space "גדול"] ingredient
+print not parse "" ingredient ; not empty

@@ -14,6 +14,7 @@ number: [fraction | float | digit]
 fraction: [digit slash digit]
 float: [digit dot any digit]
 
+character: [digit | abc]
 digit:  charset "0123456789"
 abc: [reshit | sofit]
 reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
@@ -22,7 +23,7 @@ sofit: charset "ךםןףץ"
 ; type (rotev)
 
 ; make rule from string list (separated by newline)
-; vl: split v "^/"
+; vl: split v "^/" ; block with strings
 ; replace/all v "^/" " | "
 ; vsym: load v
 ; foreach s vsym [set s mold s]
@@ -30,7 +31,7 @@ sofit: charset "ךםןףץ"
 vr: read %vegetables-rule.red
 vegetables: do vr
 
-shem: [any vegetables]
+shem: [some vegetables]
 
 size: ["גדול" | "קטן"]
 
