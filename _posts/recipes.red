@@ -1,15 +1,20 @@
 Red []
 
-; recipe: [
-; title: ""
-; subtitle: ""
-; instructions
-; ingredients
-; ]
 #include %ingredients.red
 
 ws: [lf | space | tab]
 line-sep: "^/^/"
+
+recipe: [
+    recipe-meta
+    recipe-head
+
+    copy body
+    recipe-body
+]
+
+
+recipe-meta: [yaml-head any ws]
 
 yaml-head: [ ; front-matters
     thru "---" ; (print "start yaml") 
@@ -17,17 +22,20 @@ yaml-head: [ ; front-matters
     ; layout: recipe
     ; tags: עדשים
     ; images: IMG_20160411_131704.jpg
-    copy recipe-head to "---" ; (print "end yaml")
+    to "---" ; (print "end yaml")
     thru "---"
 ]
 
+recipe-head: [recipe-titles any ws]
 
-titles: [
+
+recipe-titles: [any recipe-title]
     ; WIP support any number of #'s
     ; can be repeated (1 to 3 sections)
     ;; use `keep to [ lf lf | end ]` ?
 
-   any [
+recipe-title: [
+    [
         copy pounds 
         any "#" (n: length? pounds) space 
         copy t
@@ -44,3 +52,11 @@ titles: [
 ; print parse-trace "# one" titles
 ; print parse-trace "## two" titles
 ; print parse-trace "### three" titles
+
+recipe-body: [
+    any skip
+    ; body, can be number of sections:
+    ; ingredients    
+    ; instructions
+    ; comments
+]

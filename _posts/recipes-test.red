@@ -11,30 +11,9 @@ x: make file! a/1
 text: read x
 ; do something with text
 
-p: parse text [
+p: parse text recipe
 
-    yaml-head
-    any ws
-
-    titles
-    any ws
-
-    ; body, can be number of sections:
-    ; ingredients    
-    ; instructions
-    ; comments
-    copy body
-    to end
-    ]
-
-
-x: split body line-sep
-
-; todo x
-; x/1 ingredients
-; x/2 instructions
-; x/3 comments
-
+; x: split body line-sep
 
 out-text: body
 
