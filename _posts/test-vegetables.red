@@ -5,4 +5,7 @@ v: read %vegetables.red
 
 ; print parse v [any [abc | newline skip] x: (print x)]
 here: [there: (print there)]
-parse v [any [here some [abc | sofit] | #"^/"]]; skip] x: (print x)]
+parse v [any [some [abc | sofit] | #"^/"]]
+p: parse v [collect any [keep some [abc | sofit] | #"^/"]]
+
+probe p
