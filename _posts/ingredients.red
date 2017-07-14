@@ -9,27 +9,27 @@ Red []
 
 ; ingredient: [[unit shem] | [shem unit]]
 ingredient: [unit shem opt [space size]]
-unit: [opt [number space]]
+unit: [opt [number space]] ; todo set to 1 by default
 number: [fraction | float | digit]
 fraction: [digit slash digit]
 float: [digit dot any digit]
 
 digit:  charset "0123456789"
 abc:  charset "אבגדהוזחטיכלמנסעפצקרשת"
+sofit: charset "ךםןףץ"
 ; action (munbatot)
 ; type (rotev)
 
-; onion: ["בצל" | "bzl"]
+; make rule from string list (separated by newline)
+; vl: split v "^/"
+; replace/all v "^/" " | "
+; vsym: load v
+; foreach s vsym [set s mold s]
+; vegetables: vsym
+vr: read %vegetables-rule.red
+vegetables: do vr
 
-; v-string: load read %vegetables.red
-; vegetables: split read %vegetables.red lf
-; ? figure out how to make rule from string list (separated by newline)
-v-rule: load read %vegetables-rule.red
-
-vegetables: v-rule
-
-vegetable: [any vegetables]
-shem: [vegetable]
+shem: [any vegetable]
 
 size: "גדול"
 
@@ -38,3 +38,6 @@ size: "גדול"
 ; unit-test (for dev)
 ; i-test: rejoin ["2.3" space "בצל"]
 ; print parse i-test ingredient
+
+; do %pause.red
+; halt
