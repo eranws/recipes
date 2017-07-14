@@ -15,7 +15,8 @@ fraction: [digit slash digit]
 float: [digit dot any digit]
 
 digit:  charset "0123456789"
-abc:  charset "אבגדהוזחטיכלמנסעפצקרשת"
+abc: [reshit | sofit]
+reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
 sofit: charset "ךםןףץ"
 ; action (munbatot)
 ; type (rotev)
