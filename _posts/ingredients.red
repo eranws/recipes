@@ -29,9 +29,9 @@ sofit: charset "ךםןףץ"
 vr: read %vegetables-rule.red
 vegetables: do vr
 
-shem: [any vegetable]
+shem: [any vegetables]
 
-size: "גדול"
+size: ["גדול" | "קטן"]
 
 ; mock list, or use corpus
 

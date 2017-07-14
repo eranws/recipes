@@ -93,3 +93,7 @@ print parse rejoin ["1.5" space "בצל"] ingredient
 
 print parse rejoin ["1" space "בצל" space "גדול"] ingredient
 print parse "גמבה" ingredient
+
+print parse rejoin ["1" space "בצל" space "קטן"] ingredient
+
+print parse rejoin ["3" space "גמבה" space "גדול"] ingredient
