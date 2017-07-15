@@ -105,4 +105,5 @@ print parse rejoin ["1/2 בצל סגול קצוץ"] ingredient
 
 print parse rejoin ["2 כפות שמן זית"] ingredient
 
+print parse "2 כפות פירורי כוסמין" ingredient
 

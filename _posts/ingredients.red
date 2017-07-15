@@ -23,7 +23,7 @@ transform: ["מטוגן" | "מבושל" | "קצוץ" |
 ; unit: ? "גרם"
 ; quantity
 egg: ["ביצים" | "ביצה" ]
-shape: ["רוטב"]
+shape: ["רוטב" | "פירורי"]
 
 ; proper (national | origin | material)
 proper: ["צ'ילי"] ; can be the name itself, chili
@@ -31,9 +31,9 @@ proper: ["צ'ילי"] ; can be the name itself, chili
 ; ingredient: [[unit shem] | [shem unit]]
 ingredient: [
     unit 
-    any [space | measure | shape ] 
-    shem any [space shem]; salt pepper
-    any [space | color | proper | size | transform ]
+    any [ space | measure space | shape space ] 
+    shem any [space shem] ; salt pepper
+    any [ space | color | proper | size | transform ]
 ]
 
 #include %numbers.red
@@ -57,7 +57,7 @@ vr: read %vegetables-rule.red
 vegetables: do vr
 
 spices: ["מלח" | "פלפל" | "כורכום" | "פפריקה"]
-grain: ["קינואה" | "בורגול"]
+grain: ["קינואה" | "בורגול" | "קוואקר" | "כוסמין"]
 
 shem: [ 
     some [
