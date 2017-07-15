@@ -6,7 +6,7 @@ Red []
 
 measure: [
     "כפית" | 
-    "כוס" | "kosot" |
+    "כוס" | "כוסות" |
     "כפות" | "כף" |
     "חבילה" | "חבילת" | "צרור" ]
 
@@ -15,18 +15,15 @@ color: ["סגול" | "ירוק" | "אדום" |
     "אדומה" |
     "כתומות" | "שחורות"]
 
+; process?
 transform: ["מטוגן" | "מבושל" | "קצוץ" |
-    "מושרים" | "אפויות"]
-; מבושלת
-
+    "מושרים" | "אפויות" | "מעושנת" |
+    "מבושלת" | "מונבטות"]
 
 ; unit: ? "גרם"
 ; quantity
 egg: ["ביצים" | "ביצה" ]
 shape: ["רוטב"]
-
-; process? (transform)
-; מונבטות
 
 ; proper (national | origin | material)
 proper: ["צ'ילי"] ; can be the name itself, chili
@@ -58,10 +55,9 @@ sofit: charset "ךםןףץ"
 ; vegetables: vsym
 vr: read %vegetables-rule.red
 vegetables: do vr
-spices: ["מלח" | "פלפל"]
 
+spices: ["מלח" | "פלפל" | "כורכום" | "פפריקה"]
 grain: ["קינואה" | "בורגול"]
-
 
 shem: [ 
     some [
