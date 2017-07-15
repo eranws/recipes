@@ -44,7 +44,9 @@ adj: [ "finely" | "fresh" ]
 string: {1 teaspoon finely chopped, peeled fresh ginger}
 ; will be parsed as follows:
 
-s1: split string make bitset! [" " ","]
+sep: make bitset! [" " ","]
+
+s1: split string sep
 remove-each empty s1 [empty = ""]
 
 parse-trace s1 [amount unit description ingredient]
@@ -59,10 +61,12 @@ probe p-ingredient
 probe p-description
 
 ; ; and
-; s2: {
-; 2 (11 ounce) can mandarin orange segments, drained
-; }
+string2: {2 (11 ounce) can mandarin orange segments, drained}
 ; ; will/might be parsed as:
+
+s2: split string2 sep
+remove-each empty s2 [empty = ""]
+; parse-trace s2 [amount unit description ingredient]
 
 ; AMOUNT: 22
 ; UNIT : oz
