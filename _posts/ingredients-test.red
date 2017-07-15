@@ -102,3 +102,7 @@ print not parse "" ingredient ; not empty
 print parse rejoin ["1" space "כפית" space "בזיליקום"] ingredient
 
 print parse rejoin ["1/2 בצל סגול קצוץ"] ingredient
+
+print parse rejoin ["2 כפות שמן זית"] ingredient
+
+

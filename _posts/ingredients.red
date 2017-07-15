@@ -11,26 +11,32 @@ measure: [
     "חבילה" | "חבילת" | "צרור" ]
 
 ; unit: [opt digit to measure] ; cup / spoon
-color: ["סגול" | "ירוק" | 
-    "כתומות"]
+color: ["סגול" | "ירוק" | "אדום" | 
+    "אדומה" |
+    "כתומות" | "שחורות"]
 
 transform: ["מטוגן" | "מבושל" | "קצוץ" |
     "מושרים" | "אפויות"]
+; מבושלת
+
 
 ; unit: ? "גרם"
 ; quantity
-
+egg: ["ביצים" | "ביצה" ]
 shape: ["רוטב"]
 
 ; process? (transform)
 ; מונבטות
 
+; proper (national | origin | material)
+proper: ["צ'ילי"] ; can be the name itself, chili
+
 ; ingredient: [[unit shem] | [shem unit]]
 ingredient: [
     unit 
     any [space | measure | shape ] 
-    shem 
-    any [space | color | size | transform ]
+    shem any [space shem]; salt pepper
+    any [space | color | proper | size | transform ]
 ]
 
 unit: [opt [number space]] ; todo set to 1 by default
@@ -54,8 +60,16 @@ sofit: charset "ךםןףץ"
 ; vegetables: vsym
 vr: read %vegetables-rule.red
 vegetables: do vr
+spices: ["מלח" | "פלפל"]
 
-shem: [some [vegetables | "בורגול"]]
+grain: ["קינואה" | "בורגול"]
+
+
+shem: [ 
+    some [
+        vegetables | egg | grain | spices 
+    ]
+]
 
 size: ["גדול" | "קטן"]
 
