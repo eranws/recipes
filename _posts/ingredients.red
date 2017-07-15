@@ -4,11 +4,35 @@ Red []
 ; ingredient: [kamut shem]
 ; qty: kamut
 
-measure: ["כפית" | "כוס" | "כפות" | "חבילה" | "חבילת"]
+measure: [
+    "כפית" | 
+    "כוס" | "kosot" |
+    "כפות" | "כף" |
+    "חבילה" | "חבילת" | "צרור" ]
+
 ; unit: [opt digit to measure] ; cup / spoon
+color: ["סגול" | "ירוק" | 
+    "כתומות"]
+
+transform: ["מטוגן" | "מבושל" | "קצוץ" |
+    "מושרים" | "אפויות"]
+
+; unit: ? "גרם"
+; quantity
+
+shape: ["רוטב"]
+
+; process? (transform)
+; מונבטות
 
 ; ingredient: [[unit shem] | [shem unit]]
-ingredient: [unit opt [measure space] shem opt [space size]]
+ingredient: [
+    unit 
+    any [space | measure | shape ] 
+    shem 
+    any [space | color | size | transform ]
+]
+
 unit: [opt [number space]] ; todo set to 1 by default
 number: [fraction | float | digit]
 fraction: [digit slash digit]
@@ -31,7 +55,7 @@ sofit: charset "ךםןףץ"
 vr: read %vegetables-rule.red
 vegetables: do vr
 
-shem: [some vegetables]
+shem: [some [vegetables | "בורגול"]]
 
 size: ["גדול" | "קטן"]
 
