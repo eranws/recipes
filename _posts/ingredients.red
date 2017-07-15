@@ -39,13 +39,11 @@ ingredient: [
     any [space | color | proper | size | transform ]
 ]
 
-unit: [opt [number space]] ; todo set to 1 by default
-number: [fraction | float | digit]
-fraction: [digit slash digit]
-float: [digit dot any digit]
+#include %numbers.red
+unit: [opt [quantity space]] ; todo set to 1 by default
+
 
 character: [digit | abc]
-digit:  charset "0123456789"
 abc: [reshit | sofit]
 reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
 sofit: charset "ךםןףץ"
