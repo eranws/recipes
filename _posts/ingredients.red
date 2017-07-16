@@ -4,7 +4,7 @@ Red []
 ; abc: [reshit | sofit]
 ; reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
 ; sofit: charset "ךםןףץ"
-sep: charset reduce [space comma newline]
+sep: charset reduce [space comma]
 ; ---
 
 ingredient-line: [ some ingredient ] ; todo: instructions?
@@ -17,17 +17,17 @@ ingredient: [
     post
 ]
 
-pre: [ any [ unit | space ] ]
+pre: [ any [ unit | sep ] ]
 
 #include %numbers.red
 unit: [ 
-    quantity space measure space |
-    quantity space |
-    measure space
+    quantity sep measure sep |
+    quantity sep |
+    measure sep
 ]; todo set to 1 unit by default
 
 measure: [
-    "כפית" | "טיפות" |
+    "כפית" | "טיפות" | "מעט" |
     "כוס" | "כוסות" |
     "כפות" | "כף" |
     "חבילה" | "חבילת" | "צרור" |
@@ -38,7 +38,7 @@ shape: ["רוטב" | "פירורי" | "זרעי"]
 
 product: [ 
     [ shape | vegetables | egg | grain | sauce | spices 
-    | space]
+    | sep]
 ]
 
 shem: product ; back compatiblity
@@ -64,7 +64,7 @@ spices: ["מלח" | "פלפל" | "כורכום" |
 
 ; ---
 
-post: [ any [ space | color | proper | size | transform ] ]
+post: [ any [ sep | color | proper | size | transform ] ]
 
 color: ["סגול" | "ירוק" | "אדום" | 
     "אדומה" |
