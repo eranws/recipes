@@ -40,11 +40,15 @@ measure: [
     "גרם"
 ]
 
-shape: ["רוטב" | "פירורי" | "זרעי"]
+shape: [
+    "רוטב" | 
+    "פירורי" | 
+    "זרעי"
+]
 
 product: [ 
-    [ shape | vegetables | egg | grain | sauce | spices 
-    | sep]
+    shape | vegetables | egg | 
+    grain | sauce | spices | sep
 ]
 
 shem: product ; back compatiblity
@@ -63,7 +67,7 @@ egg: ["ביצים" | "ביצה" ]
 
 grain: ["קינואה" | "בורגול" | "קוואקר" | "כוסמין"]
 
-sauce: ["טחינה" | "מיסו" | "שמן"] 
+sauce: ["טחינה" | "מיסו" | "שמן" | "מים"] 
 
 spices: ["מלח" | "פלפל" | "כורכום" | 
     "פפריקה" | "כמון" | "קוסברה" | "פשתה" | "קארי"]
