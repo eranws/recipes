@@ -17,6 +17,8 @@ test-ingredients: {
 2 כפות פירורי כוסמין
 2 כפות שמן
 שמן
+1 גזר גדול מגורד
+2 גזרים
 }
 
 
@@ -37,7 +39,7 @@ foreach t (split test-ingredients newline) [
         ][
             ; parse t ingredient-line
             ; print x
-            ; parse-trace x ingredient-line
+            parse-trace t ingredient-line
             
             bad: 1 + bad
         ]

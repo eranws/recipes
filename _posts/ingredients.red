@@ -4,7 +4,7 @@ Red []
 ; abc: [reshit | sofit]
 ; reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
 ; sofit: charset "ךםןףץ"
-sep: charset reduce [space comma]
+sep: charset reduce [space comma "-"]
 ; ---
 
 ingredient-line: [ some ingredient ] ; todo: instructions?
@@ -60,7 +60,7 @@ grain: ["קינואה" | "בורגול" | "קוואקר" | "כוסמין"]
 sauce: ["טחינה" | "מיסו" | "שמן"] 
 
 spices: ["מלח" | "פלפל" | "כורכום" | 
-    "פפריקה" | "כמון" | "קוסברה" | "פשתה"]
+    "פפריקה" | "כמון" | "קוסברה" | "פשתה" | "קארי"]
 
 ; ---
 
