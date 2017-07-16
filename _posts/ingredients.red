@@ -89,10 +89,39 @@ proper: ["צ'ילי"] ; can be the name itself, chili
 size: ["גדול" | "קטן"]
 
 ; process?
-transform: ["מטוגן" | "מבושל" | "קצוץ" | "כתוש" |
-     "מגורד" | "גרוס" |
-    "מושרים" | "אפויות" | "מעושנת" |
-    "מבושלת" | "מונבטות" | "מגוררת"]
+transform: [
+
+    "אפויות" | 
+    "מעושנת" |
+    "מבושלת" | 
+    "מונבטות" | 
+    "מגוררת" |
+
+    "מושרים" | 
+    "מושרי" | 
+    "מושרה"
+
+    "אפוי" | 
+    "מטוגן" | 
+    "מבושל" | 
+    "קצוץ" | 
+    "כתוש" |
+    "מגורד" | 
+    "גרוס"
+
+    ; todo check for root ends
+    ; backtrack on final letter, get initial letter
+    ; func [ף] 
+    ; [פ]
+
+    ; todo: pluralize
+    ; "ים"
+    ; todo: feminine
+    ; "ה"
+    ; todo: both
+    ; "ות"
+
+]
 
 ; mock list, or use corpus
 
