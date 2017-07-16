@@ -1,51 +1,48 @@
 Red []
 
-; kamut: [any number! unit]
-; ingredient: [kamut shem]
-; qty: kamut
+; character: [digit | abc]
+; abc: [reshit | sofit]
+; reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
+; sofit: charset "ךםןףץ"
+sep: charset reduce [space comma newline]
+; ---
 
-measure: [
-    "כפית" | 
-    "כוס" | "כוסות" |
-    "כפות" | "כף" |
-    "חבילה" | "חבילת" | "צרור" ]
+ingredient-line: [ some ingredient ] ; todo: instructions?
+; ingredients: []
 
-; unit: [opt digit to measure] ; cup / spoon
-color: ["סגול" | "ירוק" | "אדום" | 
-    "אדומה" |
-    "כתומות" | "שחורות"]
 
-; process?
-transform: ["מטוגן" | "מבושל" | "קצוץ" |
-    "מושרים" | "אפויות" | "מעושנת" |
-    "מבושלת" | "מונבטות"]
-
-; unit: ? "גרם"
-; quantity
-egg: ["ביצים" | "ביצה" ]
-shape: ["רוטב" | "פירורי"]
-
-; proper (national | origin | material)
-proper: ["צ'ילי"] ; can be the name itself, chili
-
-; ingredient: [[unit shem] | [shem unit]]
 ingredient: [
-    unit 
-    any [ space | measure space | shape space ] 
-    shem any [space shem] ; salt pepper
-    any [ space | color | proper | size | transform ]
+    pre
+    some product
+    post
 ]
 
+pre: [ any [ unit | space ] ]
+
 #include %numbers.red
-unit: [opt [quantity space]] ; todo set to 1 by default
+unit: [ 
+    quantity space measure space |
+    quantity space |
+    measure space
+]; todo set to 1 unit by default
 
+measure: [
+    "כפית" | "טיפות" |
+    "כוס" | "כוסות" |
+    "כפות" | "כף" |
+    "חבילה" | "חבילת" | "צרור" |
+    "גרם"
+]
 
-character: [digit | abc]
-abc: [reshit | sofit]
-reshit: charset "אבגדהוזחטיכלמנסעפצקרשת"
-sofit: charset "ךםןףץ"
-; action (munbatot)
-; type (rotev)
+shape: ["רוטב" | "פירורי" | "זרעי"]
+
+product: [ 
+    [ shape | vegetables | egg | grain | sauce | spices 
+    | space]
+]
+
+shem: product ; back compatiblity
+
 
 ; make rule from string list (separated by newline)
 ; vl: split v "^/" ; block with strings
@@ -56,16 +53,34 @@ sofit: charset "ךםןףץ"
 vr: read %vegetables-rule.red
 vegetables: do vr
 
-spices: ["מלח" | "פלפל" | "כורכום" | "פפריקה"]
+egg: ["ביצים" | "ביצה" ]
+
 grain: ["קינואה" | "בורגול" | "קוואקר" | "כוסמין"]
 
-shem: [ 
-    some [
-        vegetables | egg | grain | spices 
-    ]
-]
+sauce: ["טחינה" | "מיסו" | "שמן"] 
+
+spices: ["מלח" | "פלפל" | "כורכום" | 
+    "פפריקה" | "כמון" | "קוסברה" | "פשתה"]
+
+; ---
+
+post: [ any [ space | color | proper | size | transform ] ]
+
+color: ["סגול" | "ירוק" | "אדום" | 
+    "אדומה" |
+    "צהובים" |
+    "כתומות" | "שחורות"]
+
+; proper (national | origin | material)
+proper: ["צ'ילי"] ; can be the name itself, chili
 
 size: ["גדול" | "קטן"]
+
+; process?
+transform: ["מטוגן" | "מבושל" | "קצוץ" | "כתוש" |
+     "מגורד" | "גרוס" |
+    "מושרים" | "אפויות" | "מעושנת" |
+    "מבושלת" | "מונבטות" | "מגוררת"]
 
 ; mock list, or use corpus
 
@@ -75,3 +90,4 @@ size: ["גדול" | "קטן"]
 
 ; do %pause.red
 ; halt
+

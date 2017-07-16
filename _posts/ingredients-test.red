@@ -1,4 +1,6 @@
-Red[]
+;;; deprecated
+
+; Red[]
 
 #include %ingredients.red
 
