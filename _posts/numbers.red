@@ -9,3 +9,5 @@ number: [fraction | float | integer]
 range: [number "-" number | number]
 
 quantity: range
+
+; support "1 1/2" (addition)
