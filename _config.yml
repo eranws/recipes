@@ -5,7 +5,7 @@ permalink:           pretty
 title:               מתכונים
 tagline:
 url:
-baseurl:             "recipes"
+baseurl:             "/recipes"
 
 # Assets
 #
